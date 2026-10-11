@@ -1,0 +1,599 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualJourney;
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualTouchpoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage;
+import org.eclipse.sirius.sample.cjmlmetamodel.EndUserExperience;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedJourney;
+import org.eclipse.sirius.sample.cjmlmetamodel.journeyStatus;
+import org.eclipse.sirius.sample.cjmlmetamodel.status;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Actual Journey</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getActualTouchpoints <em>Actual Touchpoints</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getJourneyCompliance <em>Journey Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getJourneyExperience <em>Journey Experience</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getJourneyStatus <em>Journey Status</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getPlannedReference <em>Planned Reference</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#isContentCompliance <em>Content Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#isSequenceCompliance <em>Sequence Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#isTimingCompliance <em>Timing Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualJourneyImpl#getComment <em>Comment</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ActualJourneyImpl extends CustomerJourneyImpl implements ActualJourney {
+	/**
+	 * The cached value of the '{@link #getActualTouchpoints() <em>Actual Touchpoints</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActualTouchpoints()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActualTouchpoint> actualTouchpoints;
+
+	/**
+	 * The cached value of the '{@link #getJourneyCompliance() <em>Journey Compliance</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJourneyCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected PlannedJourney journeyCompliance;
+
+	/**
+	 * The cached value of the '{@link #getJourneyExperience() <em>Journey Experience</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJourneyExperience()
+	 * @generated
+	 * @ordered
+	 */
+	protected EndUserExperience journeyExperience;
+
+	/**
+	 * The default value of the '{@link #getJourneyStatus() <em>Journey Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJourneyStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final status JOURNEY_STATUS_EDEFAULT = status.IN_PROGRESS;
+
+	/**
+	 * The cached value of the '{@link #getJourneyStatus() <em>Journey Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJourneyStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected status journeyStatus = JOURNEY_STATUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPlannedReference() <em>Planned Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlannedReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PLANNED_REFERENCE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPlannedReference() <em>Planned Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlannedReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected String plannedReference = PLANNED_REFERENCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isContentCompliance() <em>Content Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isContentCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONTENT_COMPLIANCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isContentCompliance() <em>Content Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isContentCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean contentCompliance = CONTENT_COMPLIANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSequenceCompliance() <em>Sequence Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSequenceCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SEQUENCE_COMPLIANCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSequenceCompliance() <em>Sequence Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSequenceCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean sequenceCompliance = SEQUENCE_COMPLIANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTimingCompliance() <em>Timing Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTimingCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TIMING_COMPLIANCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isTimingCompliance() <em>Timing Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTimingCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean timingCompliance = TIMING_COMPLIANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActualJourneyImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CjmlmetamodelPackage.Literals.ACTUAL_JOURNEY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ActualTouchpoint> getActualTouchpoints() {
+		if (actualTouchpoints == null) {
+			actualTouchpoints = new EObjectResolvingEList<ActualTouchpoint>(ActualTouchpoint.class, this, CjmlmetamodelPackage.ACTUAL_JOURNEY__ACTUAL_TOUCHPOINTS);
+		}
+		return actualTouchpoints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedJourney getJourneyCompliance() {
+		if (journeyCompliance != null && journeyCompliance.eIsProxy()) {
+			InternalEObject oldJourneyCompliance = (InternalEObject)journeyCompliance;
+			journeyCompliance = (PlannedJourney)eResolveProxy(oldJourneyCompliance);
+			if (journeyCompliance != oldJourneyCompliance) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE, oldJourneyCompliance, journeyCompliance));
+			}
+		}
+		return journeyCompliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedJourney basicGetJourneyCompliance() {
+		return journeyCompliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJourneyCompliance(PlannedJourney newJourneyCompliance) {
+		PlannedJourney oldJourneyCompliance = journeyCompliance;
+		journeyCompliance = newJourneyCompliance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE, oldJourneyCompliance, journeyCompliance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndUserExperience getJourneyExperience() {
+		if (journeyExperience != null && journeyExperience.eIsProxy()) {
+			InternalEObject oldJourneyExperience = (InternalEObject)journeyExperience;
+			journeyExperience = (EndUserExperience)eResolveProxy(oldJourneyExperience);
+			if (journeyExperience != oldJourneyExperience) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE, oldJourneyExperience, journeyExperience));
+			}
+		}
+		return journeyExperience;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndUserExperience basicGetJourneyExperience() {
+		return journeyExperience;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJourneyExperience(EndUserExperience newJourneyExperience) {
+		EndUserExperience oldJourneyExperience = journeyExperience;
+		journeyExperience = newJourneyExperience;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE, oldJourneyExperience, journeyExperience));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public status getJourneyStatus() {
+		return journeyStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJourneyStatus(status newJourneyStatus) {
+		status oldJourneyStatus = journeyStatus;
+		journeyStatus = newJourneyStatus == null ? JOURNEY_STATUS_EDEFAULT : newJourneyStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_STATUS, oldJourneyStatus, journeyStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPlannedReference() {
+		return plannedReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlannedReference(String newPlannedReference) {
+		String oldPlannedReference = plannedReference;
+		plannedReference = newPlannedReference;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__PLANNED_REFERENCE, oldPlannedReference, plannedReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isContentCompliance() {
+		return contentCompliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContentCompliance(boolean newContentCompliance) {
+		boolean oldContentCompliance = contentCompliance;
+		contentCompliance = newContentCompliance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__CONTENT_COMPLIANCE, oldContentCompliance, contentCompliance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSequenceCompliance() {
+		return sequenceCompliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceCompliance(boolean newSequenceCompliance) {
+		boolean oldSequenceCompliance = sequenceCompliance;
+		sequenceCompliance = newSequenceCompliance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__SEQUENCE_COMPLIANCE, oldSequenceCompliance, sequenceCompliance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isTimingCompliance() {
+		return timingCompliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingCompliance(boolean newTimingCompliance) {
+		boolean oldTimingCompliance = timingCompliance;
+		timingCompliance = newTimingCompliance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__TIMING_COMPLIANCE, oldTimingCompliance, timingCompliance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_JOURNEY__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__ACTUAL_TOUCHPOINTS:
+				return getActualTouchpoints();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE:
+				if (resolve) return getJourneyCompliance();
+				return basicGetJourneyCompliance();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE:
+				if (resolve) return getJourneyExperience();
+				return basicGetJourneyExperience();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_STATUS:
+				return getJourneyStatus();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__PLANNED_REFERENCE:
+				return getPlannedReference();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__CONTENT_COMPLIANCE:
+				return isContentCompliance();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__SEQUENCE_COMPLIANCE:
+				return isSequenceCompliance();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__TIMING_COMPLIANCE:
+				return isTimingCompliance();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__COMMENT:
+				return getComment();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__ACTUAL_TOUCHPOINTS:
+				getActualTouchpoints().clear();
+				getActualTouchpoints().addAll((Collection<? extends ActualTouchpoint>)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE:
+				setJourneyCompliance((PlannedJourney)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE:
+				setJourneyExperience((EndUserExperience)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_STATUS:
+				setJourneyStatus((status)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__PLANNED_REFERENCE:
+				setPlannedReference((String)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__CONTENT_COMPLIANCE:
+				setContentCompliance((Boolean)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__SEQUENCE_COMPLIANCE:
+				setSequenceCompliance((Boolean)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__TIMING_COMPLIANCE:
+				setTimingCompliance((Boolean)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__COMMENT:
+				setComment((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__ACTUAL_TOUCHPOINTS:
+				getActualTouchpoints().clear();
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE:
+				setJourneyCompliance((PlannedJourney)null);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE:
+				setJourneyExperience((EndUserExperience)null);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_STATUS:
+				setJourneyStatus(JOURNEY_STATUS_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__PLANNED_REFERENCE:
+				setPlannedReference(PLANNED_REFERENCE_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__CONTENT_COMPLIANCE:
+				setContentCompliance(CONTENT_COMPLIANCE_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__SEQUENCE_COMPLIANCE:
+				setSequenceCompliance(SEQUENCE_COMPLIANCE_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__TIMING_COMPLIANCE:
+				setTimingCompliance(TIMING_COMPLIANCE_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__ACTUAL_TOUCHPOINTS:
+				return actualTouchpoints != null && !actualTouchpoints.isEmpty();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_COMPLIANCE:
+				return journeyCompliance != null;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_EXPERIENCE:
+				return journeyExperience != null;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__JOURNEY_STATUS:
+				return journeyStatus != JOURNEY_STATUS_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__PLANNED_REFERENCE:
+				return PLANNED_REFERENCE_EDEFAULT == null ? plannedReference != null : !PLANNED_REFERENCE_EDEFAULT.equals(plannedReference);
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__CONTENT_COMPLIANCE:
+				return contentCompliance != CONTENT_COMPLIANCE_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__SEQUENCE_COMPLIANCE:
+				return sequenceCompliance != SEQUENCE_COMPLIANCE_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__TIMING_COMPLIANCE:
+				return timingCompliance != TIMING_COMPLIANCE_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (journeyStatus: ");
+		result.append(journeyStatus);
+		result.append(", plannedReference: ");
+		result.append(plannedReference);
+		result.append(", contentCompliance: ");
+		result.append(contentCompliance);
+		result.append(", sequenceCompliance: ");
+		result.append(sequenceCompliance);
+		result.append(", timingCompliance: ");
+		result.append(timingCompliance);
+		result.append(", comment: ");
+		result.append(comment);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ActualJourneyImpl

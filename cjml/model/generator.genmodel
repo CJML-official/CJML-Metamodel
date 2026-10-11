@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/cjml/src" modelPluginID="cjml" modelName="Generator"
+    generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>metamodel.ecore</foreignModel>
+  <genPackages prefix="Cjmlmetamodel" basePackage="org.eclipse.sirius.sample" disposableProviderFactory="true"
+      loadInitialization="true" dataTypeConverters="true" extensibleProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="metamodel.ecore#/">
+    <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+      <genAnnotations source="metamodel.xsd"/>
+    </genAnnotations>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//complianceValues">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//complianceValues/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//complianceValues/adhoc"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//complianceValues/missing"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//complianceValues/failing"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//status">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//status/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//status/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//status/aborted"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//channels">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/telephone"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/sms"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/email"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/socialMediaMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/messageService"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/chat"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/faceToFace"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/internetViaPC"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/internetViaSmartPhone"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/internetViaTablet"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/appOnPC"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/appOnSmartPhone"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/appOnTablet"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/internet"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/selfServiceMachine"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/letter"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/packageDelivery"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/faxMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/shopCounter"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/serviceDesk"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/paymentChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//channels/unknownChannel"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//uncertaintyValues">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//uncertaintyValues/uncertainOccurrence"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//uncertaintyValues/uncertainNoOfOccurrence"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//uncertaintyValues/uncertainChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//uncertaintyValues/uncertainInitiator"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//comTypes">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//comTypes/unicast"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//comTypes/multicast"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//comTypes/broadcast"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//providerTypes">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/HealthcareServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/PublicServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/CommercialServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/PrivateServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/NonProfitServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/VoluntaryServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/CommunityServiceProvider"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//providerTypes/OtherServiceProvide"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//HealthCareProviderType">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//HealthCareProviderType/Public"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//HealthCareProviderType/Postal"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//HealthCareProviderType/Private"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//HealthCareProviderType/Financial"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//Classification">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/coreEncounter"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/supportiveEncounter"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/confirmation"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/statusUpdate"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/notification"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/reminder"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/inquiry"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/instruction"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/authenticationAndAuthorization"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/payment"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Classification/other"/>
+    </genEnums>
+    <genClasses ecoreClass="metamodel.ecore#//PlannedJourney">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedJourney/plannedTouchpoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//PlannedJourney/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ActualJourney">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualJourney/actualTouchpoints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualJourney/journeyCompliance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualJourney/journeyExperience"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/journeyStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/plannedReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/contentCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/sequenceCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/timingCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualJourney/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//CustomerJourney">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//CustomerJourney/journeyOperators"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//CustomerJourney/journeyPhases"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//CustomerJourney/endUsers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//CustomerJourney/serviceProviders"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//CustomerJourney/externals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//CustomerJourney/journeyID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//CustomerJourney/journeyTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//CustomerJourney/journeyShortSummary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//CustomerJourney/journeyLongSummary"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Touchpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Touchpoint/systems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Touchpoint/objects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Touchpoint/belongsTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Touchpoint/touchpointID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Touchpoint/uncertainty"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//PlannedTouchpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//PlannedTouchpoint/deltaTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//PlannedTouchpoint/touchpointDuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//PlannedTouchpoint/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ActualTouchpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualTouchpoint/timeStarted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualTouchpoint/timeCompleted"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualTouchpoint/touchpointCompliance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualTouchpoint/touchpointExperience"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//PlannedAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedAction/initiator"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//PlannedCommunicationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedCommunicationPoint/initiator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedCommunicationPoint/receiver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedCommunicationPoint/channel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//PlannedCommunicationPoint/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//PlannedCommunicationPoint/touchpointCategory"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ActualCommunicationPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/timeOriginated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/timeAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/timeConsumed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualCommunicationPoint/initiator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualCommunicationPoint/receiver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualCommunicationPoint/channel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualCommunicationPoint/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/compliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualCommunicationPoint/touchpointCategory"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ActualAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ActualAction/initiator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualAction/compliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ActualAction/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//JourneyOperator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//JourneyOperator/belongsTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JourneyOperator/operatorID"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Concurrency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Concurrency/concurrencypaths"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Decision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Decision/decisionPaths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Decision/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Decision/decisionMaker"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//EndUserExperience">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUserExperience/experienceDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUserExperience/experienceRating"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//BackendSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BackendSystem/systemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BackendSystem/systemName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BackendSystem/systemDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Object/objectID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Object/objectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Object/objectDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Object/isVirtual"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//JourneyPhase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JourneyPhase/phaseName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JourneyPhase/phaseDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JourneyPhase/phaseID"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Actor/actorID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Actor/actorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Actor/actorDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Actor/isVirtual"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Actor/Belongs"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//EndUser">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUser/isMain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUser/preferences"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUser/frustrations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//EndUser/preferredChannels"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ServiceProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ServiceProvider/companyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ServiceProvider/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ServiceProvider/providerType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ServiceProvider/roles"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//External"/>
+    <genClasses ecoreClass="metamodel.ecore#//Initiator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Initiator/refersTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Initiator/initiatorLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Receiver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Receiver/refersTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Receiver/receiverLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Channel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Channel/channel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Channel/comType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Channel/isSynchronous"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Message/messageContent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Message/keyMessageContent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Message/derivedMessageContent"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Customer"/>
+    <genClasses ecoreClass="metamodel.ecore#//User"/>
+    <genClasses ecoreClass="metamodel.ecore#//Citizen"/>
+    <genClasses ecoreClass="metamodel.ecore#//Patient"/>
+    <genClasses ecoreClass="metamodel.ecore#//Employee">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Employee/companyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Employee/department"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Employee/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Employee/yearsExperience"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Role/roleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Role/roleDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//HealthCareServiceProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//HealthCareServiceProvider/HealthCareServiceProvider"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

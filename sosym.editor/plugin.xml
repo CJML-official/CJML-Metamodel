@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sosym -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="sosym.presentation.SosymModelWizardID"
+            name="%_UI_SosymModelWizard_label"
+            class="sosym.presentation.SosymModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SosymModelFile.gif">
+         <description>%_UI_SosymModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated sosym -->
+      <editor
+            id="sosym.presentation.SosymEditorID"
+            name="%_UI_SosymEditor_label"
+            icon="icons/full/obj16/SosymModelFile.gif"
+            extensions="sosym"
+            class="sosym.presentation.SosymEditor"
+            contributorClass="sosym.presentation.SosymActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

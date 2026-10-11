@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cjmlmetamodel" nsURI="http://cjml.no/metamodel" nsPrefix="cjml">
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedJourney" eSuperTypes="#//CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plannedTouchpoints" lowerBound="2"
+        upperBound="-1" eType="#//PlannedTouchpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualJourney" eSuperTypes="#//CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualTouchpoints" lowerBound="2"
+        upperBound="-1" eType="#//ActualTouchpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyCompliance" eType="#//PlannedJourney"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyExperience" eType="#//EndUserExperience"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyStatus" eType="#//status"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="plannedReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentCompliance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceCompliance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timingCompliance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyOperators" upperBound="-1"
+        eType="#//JourneyOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyPhases" upperBound="-1"
+        eType="#//JourneyPhase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endUsers" lowerBound="1"
+        upperBound="-1" eType="#//EndUser"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceProviders" lowerBound="1"
+        upperBound="-1" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externals" upperBound="-1"
+        eType="#//External"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyShortSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyLongSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Touchpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" upperBound="-1"
+        eType="#//BackendSystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
+        eType="#//Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//JourneyPhase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchpointID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uncertainty" upperBound="4"
+        eType="#//uncertaintyValues"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedTouchpoint" eSuperTypes="#//Touchpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deltaTime" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchpointDuration" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualTouchpoint" eSuperTypes="#//Touchpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeStarted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeCompleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointCompliance" eType="#//PlannedTouchpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointExperience" eType="#//EndUserExperience"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedAction" eSuperTypes="#//PlannedTouchpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initiator" lowerBound="1"
+        eType="#//Initiator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedCommunicationPoint" eSuperTypes="#//PlannedTouchpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initiator" lowerBound="1"
+        eType="#//Initiator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channel" lowerBound="1"
+        eType="#//Channel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchpointCategory" eType="#//Classification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualCommunicationPoint" eSuperTypes="#//ActualTouchpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeOriginated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeAvailable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeConsumed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initiator" lowerBound="1"
+        eType="#//Initiator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channel" lowerBound="1"
+        eType="#//Channel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compliance" eType="#//complianceValues"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchpointCategory" eType="#//Classification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualAction" eSuperTypes="#//ActualTouchpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initiator" lowerBound="1"
+        eType="#//Initiator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compliance" eType="#//complianceValues"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" eType="#//JourneyPhase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatorID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concurrency" eSuperTypes="#//JourneyOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concurrencypaths" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//JourneyOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decisionPaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decisionMaker" eType="#//Actor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndUserExperience">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="experienceDescription"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="experienceRating" lowerBound="1"
+        upperBound="5" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BackendSystem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Object">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVirtual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyPhase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actorID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actorName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actorDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVirtual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndUser" eSuperTypes="#//Actor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceProvider" eSuperTypes="#//Actor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerType" eType="#//providerTypes"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Belongs" upperBound="-1"
+        eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="External" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="complianceValues">
+    <eLiterals name="planned"/>
+    <eLiterals name="adhoc" value="1"/>
+    <eLiterals name="missing" value="2"/>
+    <eLiterals name="failing" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initiator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" lowerBound="1"
+        eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initiatorLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Receiver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" lowerBound="1"
+        eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="receiverLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="channel" eType="#//channels"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comType" eType="#//comTypes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSynchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyMessageContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedMessageContent"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="status">
+    <eLiterals name="inProgress"/>
+    <eLiterals name="completed" value="1"/>
+    <eLiterals name="aborted" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//EndUser"/>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//EndUser"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Citizen" eSuperTypes="#//EndUser"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Patient" eSuperTypes="#//EndUser"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee" eSuperTypes="#//EndUser"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="channels">
+    <eLiterals name="telephone"/>
+    <eLiterals name="sms" value="1"/>
+    <eLiterals name="email" value="2"/>
+    <eLiterals name="socialMediaMessage" value="3"/>
+    <eLiterals name="messageService" value="4"/>
+    <eLiterals name="chat" value="5"/>
+    <eLiterals name="faceToFace" value="6"/>
+    <eLiterals name="internetViaPC" value="7"/>
+    <eLiterals name="internetViaSmartPhone" value="8"/>
+    <eLiterals name="internetViaTablet" value="9"/>
+    <eLiterals name="appOnPC" value="10"/>
+    <eLiterals name="appOnSmartPhone" value="11"/>
+    <eLiterals name="appOnTablet" value="12"/>
+    <eLiterals name="internet" value="13"/>
+    <eLiterals name="selfServiceMachine" value="14"/>
+    <eLiterals name="letter" value="15"/>
+    <eLiterals name="packageDelivery" value="16"/>
+    <eLiterals name="faxMessage" value="17"/>
+    <eLiterals name="shopCounter" value="18"/>
+    <eLiterals name="serviceDesk" value="19"/>
+    <eLiterals name="paymentChannel" value="20"/>
+    <eLiterals name="unknownChannel" value="21"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="uncertaintyValues">
+    <eLiterals name="uncertainOccurrence"/>
+    <eLiterals name="uncertainNoOfOccurrence" value="1"/>
+    <eLiterals name="uncertainChannel" value="2"/>
+    <eLiterals name="uncertainInitiator" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="comTypes">
+    <eLiterals name="unicast"/>
+    <eLiterals name="multicast" value="1"/>
+    <eLiterals name="broadcast" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="providerTypes">
+    <eLiterals name="HealthcareServiceProvider"/>
+    <eLiterals name="PublicServiceProvider" value="1"/>
+    <eLiterals name="CommercialServiceProvider" value="2"/>
+    <eLiterals name="PrivateServiceProvider" value="3"/>
+    <eLiterals name="NonProfitServiceProvider" value="4"/>
+    <eLiterals name="VoluntaryServiceProvider" value="5"/>
+    <eLiterals name="CommunityServiceProvider" value="6"/>
+    <eLiterals name="OtherServiceProvide" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HealthCareServiceProvider" eSuperTypes="#//ServiceProvider">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HealthCareServiceProviderType"
+        eType="#//HealthCareProviderType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HealthCareProviderType">
+    <eLiterals name="Healthcare provider"/>
+    <eLiterals name="Clinical support service" value="1"/>
+    <eLiterals name="Patient’s personal network" value="2"/>
+    <eLiterals name="Digital health system" value="3"/>
+    <eLiterals name="Digital system – general" value="4"/>
+    <eLiterals name="Patient organization and auxiliary service" value="5"/>
+    <eLiterals name="Employer" value="6"/>
+    <eLiterals name="Welfare service and social care" value="7"/>
+    <eLiterals name="Health authority" value="8"/>
+    <eLiterals name="Health registry and quality system" value="9"/>
+    <eLiterals name="Other" value="10"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Classification">
+    <eLiterals name="coreEncounter"/>
+    <eLiterals name="supportiveEncounter" value="1"/>
+    <eLiterals name="confirmation" value="2"/>
+    <eLiterals name="statusUpdate" value="3"/>
+    <eLiterals name="notification" value="4"/>
+    <eLiterals name="reminder" value="5"/>
+    <eLiterals name="inquiry" value="6"/>
+    <eLiterals name="instruction" value="7"/>
+    <eLiterals name="authenticationAndAuthorization" value="8"/>
+    <eLiterals name="payment" value="9"/>
+    <eLiterals name="other" value="10"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,247 @@
+@Ecore(nsPrefix="cjml", nsURI="http://cjml.no/metamodel")
+@GenModel(modelDirectory="/cjml/src", modelName="Testgen", importerID="org.eclipse.emf.importer.ecore")
+package cjmlmetamodel
+
+class PlannedJourney extends CustomerJourney {
+	refers PlannedTouchpoint[2..*] plannedTouchpoints
+}
+
+class ActualJourney extends CustomerJourney {
+	refers ActualTouchpoint[2..*] actualTouchpoints
+	refers PlannedJourney journeyCompliance
+	refers Experience journeyExperience
+	status journeyStatus
+	boolean contentCompliance
+	boolean sequenceCompliance
+	boolean timingCompliance
+}
+
+class CustomerJourney {
+	refers JourneyOperator[] journeyOperators
+	refers JourneyPhase[] journeyPhases
+	refers EndUser[+] endUser
+	refers ServiceProvider[+] serviceProvider
+	refers External[] external
+	String journeyID
+	String journeyTitle
+	String journeyShortSummary
+	String journeyLongSummary
+}
+
+class Touchpoint {
+	refers BackendSystem[] backendSystems
+	refers Object[] objects
+	refers JourneyPhase belongsTo
+	String touchpointID
+	uncertaintyValues uncertainty
+	String comment
+}
+
+class PlannedTouchpoint extends Touchpoint {
+	unique float[] deltaStartTime
+	unique float[] touchpointDuration
+}
+
+class ActualTouchpoint extends Touchpoint {
+	Date timeStarted
+	Date timeCompleted
+	refers PlannedTouchpoint touchpointCompliance
+	complianceValues compliance
+	refers Experience touchpointExperience
+}
+
+class PlannedAction extends PlannedTouchpoint {
+	refers Initiator[1] initiator
+}
+
+class PlannedCommunicationPoint extends PlannedTouchpoint {
+	refers Initiator[1] initiator
+	refers Receiver[1] receiver
+	refers Channel[1] channel
+	refers Message[1] message
+}
+
+class ActualCommunicationPoint extends ActualTouchpoint {
+	Date timeOriginated
+	Date timeAvailable
+	Date timeConsumed
+	refers Initiator[1] initiator
+	refers Receiver[1] receiver
+	refers Channel[1] channel
+	refers Message[1] message
+}
+
+class ActualAction extends ActualTouchpoint {
+	refers Initiator[1] initiator
+}
+
+class JourneyOperator {
+	refers JourneyPhase belongsTo
+	String operatorID
+}
+
+class Concurrency extends JourneyOperator {
+	unique int[] concurrencypaths
+}
+
+class Decision extends JourneyOperator {
+	int decisionPaths
+	String condition
+	refers Actor decisionMaker
+}
+
+class Experience {
+	String EndUserRating
+	unique int[1..5] EndUserExperienceRating
+}
+
+class BackendSystem {
+	String systemID
+	String systemName
+	String systemDescription
+}
+
+class Object {
+	String objectID
+	String objectName
+	String objectDescription
+	boolean isVirtual
+}
+
+class JourneyPhase {
+	String phaseName
+	String phaseDescription
+}
+
+class Actor {
+	String actorID
+	String actorName
+	String actorDescription
+	Boolean isVirtual
+}
+
+class EndUser extends Actor {
+	boolean isMain
+}
+
+class ServiceProvider extends Actor {
+	String companyName
+	String department
+	String position
+	unsettable providerTypes ^type
+}
+
+class External extends Actor {
+}
+
+enum complianceValues {
+	planned
+	adhoc = 1
+	missing = 2
+	failing = 3
+}
+
+class Initiator {
+	refers Actor[1] refersTo
+	String initiatorLabel
+}
+
+class Receiver {
+	refers Actor[1] refersTo
+	String receiverLabel
+}
+
+class Channel {
+	channels channel
+	comTypes comType
+	boolean isSynchronous
+}
+
+class Message {
+	String content
+	String keyContent
+	String derivedKeyContent
+}
+
+enum status {
+	inProgress
+	completed = 1
+	aborted = 2
+}
+
+class Customer extends EndUser {
+	String likes
+	String frustrations
+	unique channels[] preferredChannels
+}
+
+class User extends EndUser {
+}
+
+class Citizen extends EndUser {
+}
+
+class Patient extends EndUser {
+	patientTypes patientType
+	String diagnosis
+	String insuranceName
+}
+
+class Employee extends EndUser {
+	String companyName
+	String department
+	String position
+	unique int[18..100] yearsExperience
+}
+
+enum channels {
+	telephone
+	sms = 1
+	email = 2
+	internet = 3
+	faceToFace = 4
+	payment = 5
+	^package = 6
+	letter = 7
+	invoice = 8
+	socialMediaMessageOrInteraction = 9
+	callCenter = 10
+	chat = 11
+	shopping = 12
+	onlineShopping = 13
+	logistics = 14
+	serviceDesk = 15
+	shopCounter = 16
+	appOnPC = 17
+	messageService = 18
+	smartPhone = 19
+}
+
+enum uncertaintyValues {
+	uncertainOccurrence
+	uncertainNoOfOccurrence = 1
+	uncertainChannel = 2
+	uncertainInitiator = 3
+}
+
+enum comTypes {
+	unicast
+	multicast = 1
+	broadcast = 2
+}
+
+enum providerTypes {
+	type1_internal_main
+	type2_internal_shared = 1
+	type3_external = 2
+}
+
+enum patientTypes {
+	inPatient
+	outPatient = 1
+	dayCase = 2
+	dayPatient = 3
+	ambulatoryEmergencyCare = 4
+	CommunityCare = 5
+	IntensiveCare = 6
+}

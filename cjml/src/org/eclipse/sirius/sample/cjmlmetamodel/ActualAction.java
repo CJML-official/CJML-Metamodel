@@ -1,0 +1,94 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Actual Action</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getInitiator <em>Initiator</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getCompliance <em>Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getComment <em>Comment</em>}</li>
+ * </ul>
+ *
+ * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getActualAction()
+ * @model
+ * @generated
+ */
+public interface ActualAction extends ActualTouchpoint {
+	/**
+	 * Returns the value of the '<em><b>Initiator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initiator</em>' reference.
+	 * @see #setInitiator(Initiator)
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getActualAction_Initiator()
+	 * @model required="true"
+	 * @generated
+	 */
+	Initiator getInitiator();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getInitiator <em>Initiator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initiator</em>' reference.
+	 * @see #getInitiator()
+	 * @generated
+	 */
+	void setInitiator(Initiator value);
+
+	/**
+	 * Returns the value of the '<em><b>Compliance</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.sirius.sample.cjmlmetamodel.complianceValues}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Compliance</em>' attribute.
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.complianceValues
+	 * @see #setCompliance(complianceValues)
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getActualAction_Compliance()
+	 * @model
+	 * @generated
+	 */
+	complianceValues getCompliance();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getCompliance <em>Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Compliance</em>' attribute.
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.complianceValues
+	 * @see #getCompliance()
+	 * @generated
+	 */
+	void setCompliance(complianceValues value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' attribute.
+	 * @see #setComment(String)
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getActualAction_Comment()
+	 * @model
+	 * @generated
+	 */
+	String getComment();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.sirius.sample.cjmlmetamodel.ActualAction#getComment <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' attribute.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(String value);
+
+} // ActualAction

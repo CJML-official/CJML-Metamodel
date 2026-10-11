@@ -1,0 +1,772 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.eclipse.sirius.sample.cjmlmetamodel.Actor;
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualAction;
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualCommunicationPoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualJourney;
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualTouchpoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.BackendSystem;
+import org.eclipse.sirius.sample.cjmlmetamodel.Channel;
+import org.eclipse.sirius.sample.cjmlmetamodel.Citizen;
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelFactory;
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage;
+import org.eclipse.sirius.sample.cjmlmetamodel.Concurrency;
+import org.eclipse.sirius.sample.cjmlmetamodel.Customer;
+import org.eclipse.sirius.sample.cjmlmetamodel.CustomerJourney;
+import org.eclipse.sirius.sample.cjmlmetamodel.Decision;
+import org.eclipse.sirius.sample.cjmlmetamodel.Employee;
+import org.eclipse.sirius.sample.cjmlmetamodel.EndUser;
+import org.eclipse.sirius.sample.cjmlmetamodel.EndUserExperience;
+import org.eclipse.sirius.sample.cjmlmetamodel.External;
+import org.eclipse.sirius.sample.cjmlmetamodel.Initiator;
+import org.eclipse.sirius.sample.cjmlmetamodel.JourneyOperator;
+import org.eclipse.sirius.sample.cjmlmetamodel.JourneyPhase;
+import org.eclipse.sirius.sample.cjmlmetamodel.Message;
+import org.eclipse.sirius.sample.cjmlmetamodel.Patient;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedAction;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedCommunicationPoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedJourney;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedTouchpoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.Receiver;
+import org.eclipse.sirius.sample.cjmlmetamodel.ServiceProvider;
+import org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint;
+import org.eclipse.sirius.sample.cjmlmetamodel.User;
+import org.eclipse.sirius.sample.cjmlmetamodel.channels;
+import org.eclipse.sirius.sample.cjmlmetamodel.comTypes;
+import org.eclipse.sirius.sample.cjmlmetamodel.complianceValues;
+import org.eclipse.sirius.sample.cjmlmetamodel.journeyStatus;
+import org.eclipse.sirius.sample.cjmlmetamodel.patientTypes;
+import org.eclipse.sirius.sample.cjmlmetamodel.providerTypes;
+import org.eclipse.sirius.sample.cjmlmetamodel.uncertaintyValues;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class CjmlmetamodelFactoryImpl extends EFactoryImpl implements CjmlmetamodelFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static CjmlmetamodelFactory init() {
+		try {
+			CjmlmetamodelFactory theCjmlmetamodelFactory = (CjmlmetamodelFactory)EPackage.Registry.INSTANCE.getEFactory(CjmlmetamodelPackage.eNS_URI);
+			if (theCjmlmetamodelFactory != null) {
+				return theCjmlmetamodelFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new CjmlmetamodelFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CjmlmetamodelFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case CjmlmetamodelPackage.PLANNED_JOURNEY: return createPlannedJourney();
+			case CjmlmetamodelPackage.ACTUAL_JOURNEY: return createActualJourney();
+			case CjmlmetamodelPackage.CUSTOMER_JOURNEY: return createCustomerJourney();
+			case CjmlmetamodelPackage.TOUCHPOINT: return createTouchpoint();
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT: return createPlannedTouchpoint();
+			case CjmlmetamodelPackage.ACTUAL_TOUCHPOINT: return createActualTouchpoint();
+			case CjmlmetamodelPackage.PLANNED_ACTION: return createPlannedAction();
+			case CjmlmetamodelPackage.PLANNED_COMMUNICATION_POINT: return createPlannedCommunicationPoint();
+			case CjmlmetamodelPackage.ACTUAL_COMMUNICATION_POINT: return createActualCommunicationPoint();
+			case CjmlmetamodelPackage.ACTUAL_ACTION: return createActualAction();
+			case CjmlmetamodelPackage.JOURNEY_OPERATOR: return createJourneyOperator();
+			case CjmlmetamodelPackage.CONCURRENCY: return createConcurrency();
+			case CjmlmetamodelPackage.DECISION: return createDecision();
+			case CjmlmetamodelPackage.END_USER_EXPERIENCE: return createEndUserExperience();
+			case CjmlmetamodelPackage.BACKEND_SYSTEM: return createBackendSystem();
+			case CjmlmetamodelPackage.OBJECT: return createObject();
+			case CjmlmetamodelPackage.JOURNEY_PHASE: return createJourneyPhase();
+			case CjmlmetamodelPackage.ACTOR: return createActor();
+			case CjmlmetamodelPackage.END_USER: return createEndUser();
+			case CjmlmetamodelPackage.SERVICE_PROVIDER: return createServiceProvider();
+			case CjmlmetamodelPackage.EXTERNAL: return createExternal();
+			case CjmlmetamodelPackage.INITIATOR: return createInitiator();
+			case CjmlmetamodelPackage.RECEIVER: return createReceiver();
+			case CjmlmetamodelPackage.CHANNEL: return createChannel();
+			case CjmlmetamodelPackage.MESSAGE: return createMessage();
+			case CjmlmetamodelPackage.CUSTOMER: return createCustomer();
+			case CjmlmetamodelPackage.USER: return createUser();
+			case CjmlmetamodelPackage.CITIZEN: return createCitizen();
+			case CjmlmetamodelPackage.PATIENT: return createPatient();
+			case CjmlmetamodelPackage.EMPLOYEE: return createEmployee();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case CjmlmetamodelPackage.COMPLIANCE_VALUES:
+				return createcomplianceValuesFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.JOURNEY_STATUS:
+				return createjourneyStatusFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.CHANNELS:
+				return createchannelsFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.UNCERTAINTY_VALUES:
+				return createuncertaintyValuesFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.COM_TYPES:
+				return createcomTypesFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.PROVIDER_TYPES:
+				return createproviderTypesFromString(eDataType, initialValue);
+			case CjmlmetamodelPackage.PATIENT_TYPES:
+				return createpatientTypesFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case CjmlmetamodelPackage.COMPLIANCE_VALUES:
+				return convertcomplianceValuesToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.JOURNEY_STATUS:
+				return convertjourneyStatusToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.CHANNELS:
+				return convertchannelsToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.UNCERTAINTY_VALUES:
+				return convertuncertaintyValuesToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.COM_TYPES:
+				return convertcomTypesToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.PROVIDER_TYPES:
+				return convertproviderTypesToString(eDataType, instanceValue);
+			case CjmlmetamodelPackage.PATIENT_TYPES:
+				return convertpatientTypesToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedJourney createPlannedJourney() {
+		PlannedJourneyImpl plannedJourney = new PlannedJourneyImpl();
+		return plannedJourney;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActualJourney createActualJourney() {
+		ActualJourneyImpl actualJourney = new ActualJourneyImpl();
+		return actualJourney;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomerJourney createCustomerJourney() {
+		CustomerJourneyImpl customerJourney = new CustomerJourneyImpl();
+		return customerJourney;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Touchpoint createTouchpoint() {
+		TouchpointImpl touchpoint = new TouchpointImpl();
+		return touchpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedTouchpoint createPlannedTouchpoint() {
+		PlannedTouchpointImpl plannedTouchpoint = new PlannedTouchpointImpl();
+		return plannedTouchpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActualTouchpoint createActualTouchpoint() {
+		ActualTouchpointImpl actualTouchpoint = new ActualTouchpointImpl();
+		return actualTouchpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedAction createPlannedAction() {
+		PlannedActionImpl plannedAction = new PlannedActionImpl();
+		return plannedAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlannedCommunicationPoint createPlannedCommunicationPoint() {
+		PlannedCommunicationPointImpl plannedCommunicationPoint = new PlannedCommunicationPointImpl();
+		return plannedCommunicationPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActualCommunicationPoint createActualCommunicationPoint() {
+		ActualCommunicationPointImpl actualCommunicationPoint = new ActualCommunicationPointImpl();
+		return actualCommunicationPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActualAction createActualAction() {
+		ActualActionImpl actualAction = new ActualActionImpl();
+		return actualAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JourneyOperator createJourneyOperator() {
+		JourneyOperatorImpl journeyOperator = new JourneyOperatorImpl();
+		return journeyOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Concurrency createConcurrency() {
+		ConcurrencyImpl concurrency = new ConcurrencyImpl();
+		return concurrency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Decision createDecision() {
+		DecisionImpl decision = new DecisionImpl();
+		return decision;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndUserExperience createEndUserExperience() {
+		EndUserExperienceImpl endUserExperience = new EndUserExperienceImpl();
+		return endUserExperience;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BackendSystem createBackendSystem() {
+		BackendSystemImpl backendSystem = new BackendSystemImpl();
+		return backendSystem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.sirius.sample.cjmlmetamodel.Object createObject() {
+		ObjectImpl object = new ObjectImpl();
+		return object;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JourneyPhase createJourneyPhase() {
+		JourneyPhaseImpl journeyPhase = new JourneyPhaseImpl();
+		return journeyPhase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor createActor() {
+		ActorImpl actor = new ActorImpl();
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndUser createEndUser() {
+		EndUserImpl endUser = new EndUserImpl();
+		return endUser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceProvider createServiceProvider() {
+		ServiceProviderImpl serviceProvider = new ServiceProviderImpl();
+		return serviceProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public External createExternal() {
+		ExternalImpl external = new ExternalImpl();
+		return external;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Initiator createInitiator() {
+		InitiatorImpl initiator = new InitiatorImpl();
+		return initiator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receiver createReceiver() {
+		ReceiverImpl receiver = new ReceiverImpl();
+		return receiver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Channel createChannel() {
+		ChannelImpl channel = new ChannelImpl();
+		return channel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Message createMessage() {
+		MessageImpl message = new MessageImpl();
+		return message;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Customer createCustomer() {
+		CustomerImpl customer = new CustomerImpl();
+		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public User createUser() {
+		UserImpl user = new UserImpl();
+		return user;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Citizen createCitizen() {
+		CitizenImpl citizen = new CitizenImpl();
+		return citizen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Patient createPatient() {
+		PatientImpl patient = new PatientImpl();
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Employee createEmployee() {
+		EmployeeImpl employee = new EmployeeImpl();
+		return employee;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public complianceValues createcomplianceValues(String literal) {
+		complianceValues result = complianceValues.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.COMPLIANCE_VALUES.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public complianceValues createcomplianceValuesFromString(EDataType eDataType, String initialValue) {
+		return createcomplianceValues(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertcomplianceValues(complianceValues instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertcomplianceValuesToString(EDataType eDataType, Object instanceValue) {
+		return convertcomplianceValues((complianceValues)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public journeyStatus createjourneyStatus(String literal) {
+		journeyStatus result = journeyStatus.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.JOURNEY_STATUS.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public journeyStatus createjourneyStatusFromString(EDataType eDataType, String initialValue) {
+		return createjourneyStatus(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertjourneyStatus(journeyStatus instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertjourneyStatusToString(EDataType eDataType, Object instanceValue) {
+		return convertjourneyStatus((journeyStatus)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public channels createchannels(String literal) {
+		channels result = channels.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.CHANNELS.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public channels createchannelsFromString(EDataType eDataType, String initialValue) {
+		return createchannels(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertchannels(channels instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertchannelsToString(EDataType eDataType, Object instanceValue) {
+		return convertchannels((channels)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public uncertaintyValues createuncertaintyValues(String literal) {
+		uncertaintyValues result = uncertaintyValues.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.UNCERTAINTY_VALUES.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public uncertaintyValues createuncertaintyValuesFromString(EDataType eDataType, String initialValue) {
+		return createuncertaintyValues(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertuncertaintyValues(uncertaintyValues instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertuncertaintyValuesToString(EDataType eDataType, Object instanceValue) {
+		return convertuncertaintyValues((uncertaintyValues)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public comTypes createcomTypes(String literal) {
+		comTypes result = comTypes.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.COM_TYPES.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public comTypes createcomTypesFromString(EDataType eDataType, String initialValue) {
+		return createcomTypes(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertcomTypes(comTypes instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertcomTypesToString(EDataType eDataType, Object instanceValue) {
+		return convertcomTypes((comTypes)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public providerTypes createproviderTypes(String literal) {
+		providerTypes result = providerTypes.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.PROVIDER_TYPES.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public providerTypes createproviderTypesFromString(EDataType eDataType, String initialValue) {
+		return createproviderTypes(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertproviderTypes(providerTypes instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertproviderTypesToString(EDataType eDataType, Object instanceValue) {
+		return convertproviderTypes((providerTypes)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public patientTypes createpatientTypes(String literal) {
+		patientTypes result = patientTypes.get(literal);
+		if (result == null) throw new IllegalArgumentException("The value '" + literal + "' is not a valid enumerator of '" + CjmlmetamodelPackage.Literals.PATIENT_TYPES.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public patientTypes createpatientTypesFromString(EDataType eDataType, String initialValue) {
+		return createpatientTypes(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertpatientTypes(patientTypes instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertpatientTypesToString(EDataType eDataType, Object instanceValue) {
+		return convertpatientTypes((patientTypes)instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CjmlmetamodelPackage getCjmlmetamodelPackage() {
+		return (CjmlmetamodelPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static CjmlmetamodelPackage getPackage() {
+		return CjmlmetamodelPackage.eINSTANCE;
+	}
+
+} //CjmlmetamodelFactoryImpl

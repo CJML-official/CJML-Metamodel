@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cjml="http://cjml.no/metamodel" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cjml.no/metamodel">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:simpleType name="complianceValues">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="planned"/>
+      <xsd:enumeration value="adhoc"/>
+      <xsd:enumeration value="missing"/>
+      <xsd:enumeration value="failing"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="status">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="inProgress"/>
+      <xsd:enumeration value="completed"/>
+      <xsd:enumeration value="aborted"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="channels">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="telephone"/>
+      <xsd:enumeration value="sms"/>
+      <xsd:enumeration value="email"/>
+      <xsd:enumeration value="socialMediaMessage"/>
+      <xsd:enumeration value="messageService"/>
+      <xsd:enumeration value="chat"/>
+      <xsd:enumeration value="faceToFace"/>
+      <xsd:enumeration value="internetViaPC"/>
+      <xsd:enumeration value="internetViaSmartPhone"/>
+      <xsd:enumeration value="internetViaTablet"/>
+      <xsd:enumeration value="appOnPC"/>
+      <xsd:enumeration value="appOnSmartPhone"/>
+      <xsd:enumeration value="appOnTablet"/>
+      <xsd:enumeration value="internet"/>
+      <xsd:enumeration value="selfServiceMachine"/>
+      <xsd:enumeration value="letter"/>
+      <xsd:enumeration value="packageDelivery"/>
+      <xsd:enumeration value="faxMessage"/>
+      <xsd:enumeration value="shopCounter"/>
+      <xsd:enumeration value="serviceDesk"/>
+      <xsd:enumeration value="paymentChannel"/>
+      <xsd:enumeration value="unknownChannel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="uncertaintyValues">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="uncertainOccurrence"/>
+      <xsd:enumeration value="uncertainNoOfOccurrence"/>
+      <xsd:enumeration value="uncertainChannel"/>
+      <xsd:enumeration value="uncertainInitiator"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="comTypes">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="unicast"/>
+      <xsd:enumeration value="multicast"/>
+      <xsd:enumeration value="broadcast"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="providerTypes">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="type1_internal_main"/>
+      <xsd:enumeration value="type2_internal_shared"/>
+      <xsd:enumeration value="type3_external"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="patientTypes">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="inPatient"/>
+      <xsd:enumeration value="outPatient"/>
+      <xsd:enumeration value="dayCase"/>
+      <xsd:enumeration value="dayPatient"/>
+      <xsd:enumeration value="ambulatoryEmergencyCare"/>
+      <xsd:enumeration value="CommunityCare"/>
+      <xsd:enumeration value="IntensiveCare"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PlannedJourney">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:CustomerJourney">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="plannedTouchpoints" type="cjml:PlannedTouchpoint"/>
+        </xsd:choice>
+        <xsd:attribute name="comment" type="xsd:string"/>
+        <xsd:attribute name="plannedTouchpoints" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlannedJourney" type="cjml:PlannedJourney"/>
+  <xsd:complexType name="ActualJourney">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:CustomerJourney">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="actualTouchpoints" type="cjml:ActualTouchpoint"/>
+          <xsd:element name="journeyCompliance" type="cjml:PlannedJourney"/>
+          <xsd:element name="journeyExperience" type="cjml:EndUserExperience"/>
+        </xsd:choice>
+        <xsd:attribute name="journeyStatus" type="cjml:status"/>
+        <xsd:attribute name="plannedReference" type="xsd:string"/>
+        <xsd:attribute name="contentCompliance" type="xsd:boolean"/>
+        <xsd:attribute name="sequenceCompliance" type="xsd:boolean"/>
+        <xsd:attribute name="timingCompliance" type="xsd:boolean"/>
+        <xsd:attribute name="comment" type="xsd:string"/>
+        <xsd:attribute name="actualTouchpoints" type="xsd:string"/>
+        <xsd:attribute name="journeyCompliance" type="xsd:string"/>
+        <xsd:attribute name="journeyExperience" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ActualJourney" type="cjml:ActualJourney"/>
+  <xsd:complexType name="CustomerJourney">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="journeyOperators" type="cjml:JourneyOperator"/>
+      <xsd:element name="journeyPhases" type="cjml:JourneyPhase"/>
+      <xsd:element name="endUsers" type="cjml:EndUser"/>
+      <xsd:element name="serviceProviders" type="cjml:ServiceProvider"/>
+      <xsd:element name="externals" type="cjml:External"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="journeyID" type="xsd:string"/>
+    <xsd:attribute name="journeyTitle" type="xsd:string"/>
+    <xsd:attribute name="journeyShortSummary" type="xsd:string"/>
+    <xsd:attribute name="journeyLongSummary" type="xsd:string"/>
+    <xsd:attribute name="journeyOperators" type="xsd:string"/>
+    <xsd:attribute name="journeyPhases" type="xsd:string"/>
+    <xsd:attribute name="endUsers" type="xsd:string"/>
+    <xsd:attribute name="serviceProviders" type="xsd:string"/>
+    <xsd:attribute name="externals" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="CustomerJourney" type="cjml:CustomerJourney"/>
+  <xsd:complexType name="Touchpoint">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="uncertainty" type="cjml:uncertaintyValues"/>
+      <xsd:element name="systems" type="cjml:BackendSystem"/>
+      <xsd:element name="objects" type="cjml:Object"/>
+      <xsd:element name="belongsTo" type="cjml:JourneyPhase"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="touchpointID" type="xsd:string"/>
+    <xsd:attribute name="systems" type="xsd:string"/>
+    <xsd:attribute name="objects" type="xsd:string"/>
+    <xsd:attribute name="belongsTo" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Touchpoint" type="cjml:Touchpoint"/>
+  <xsd:complexType name="PlannedTouchpoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Touchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="deltaTime" type="xsd:float"/>
+          <xsd:element name="touchpointDuration" type="xsd:float"/>
+        </xsd:choice>
+        <xsd:attribute name="comment" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlannedTouchpoint" type="cjml:PlannedTouchpoint"/>
+  <xsd:complexType name="ActualTouchpoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Touchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="touchpointCompliance" type="cjml:PlannedTouchpoint"/>
+          <xsd:element name="touchpointExperience" type="cjml:EndUserExperience"/>
+        </xsd:choice>
+        <xsd:attribute name="timeStarted" type="xsd:string"/>
+        <xsd:attribute name="timeCompleted" type="xsd:string"/>
+        <xsd:attribute name="touchpointCompliance" type="xsd:string"/>
+        <xsd:attribute name="touchpointExperience" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ActualTouchpoint" type="cjml:ActualTouchpoint"/>
+  <xsd:complexType name="PlannedAction">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:PlannedTouchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initiator" type="cjml:Initiator"/>
+        </xsd:choice>
+        <xsd:attribute name="initiator" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlannedAction" type="cjml:PlannedAction"/>
+  <xsd:complexType name="PlannedCommunicationPoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:PlannedTouchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initiator" type="cjml:Initiator"/>
+          <xsd:element name="receiver" type="cjml:Receiver"/>
+          <xsd:element name="channel" type="cjml:Channel"/>
+          <xsd:element name="message" type="cjml:Message"/>
+        </xsd:choice>
+        <xsd:attribute name="initiator" type="xsd:string"/>
+        <xsd:attribute name="receiver" type="xsd:string"/>
+        <xsd:attribute name="channel" type="xsd:string"/>
+        <xsd:attribute name="message" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlannedCommunicationPoint" type="cjml:PlannedCommunicationPoint"/>
+  <xsd:complexType name="ActualCommunicationPoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:ActualTouchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initiator" type="cjml:Initiator"/>
+          <xsd:element name="receiver" type="cjml:Receiver"/>
+          <xsd:element name="channel" type="cjml:Channel"/>
+          <xsd:element name="message" type="cjml:Message"/>
+        </xsd:choice>
+        <xsd:attribute name="timeOriginated" type="xsd:string"/>
+        <xsd:attribute name="timeAvailable" type="xsd:string"/>
+        <xsd:attribute name="timeConsumed" type="xsd:string"/>
+        <xsd:attribute name="compliance" type="cjml:complianceValues"/>
+        <xsd:attribute name="comment" type="xsd:string"/>
+        <xsd:attribute name="initiator" type="xsd:string"/>
+        <xsd:attribute name="receiver" type="xsd:string"/>
+        <xsd:attribute name="channel" type="xsd:string"/>
+        <xsd:attribute name="message" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ActualCommunicationPoint" type="cjml:ActualCommunicationPoint"/>
+  <xsd:complexType name="ActualAction">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:ActualTouchpoint">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initiator" type="cjml:Initiator"/>
+        </xsd:choice>
+        <xsd:attribute name="compliance" type="cjml:complianceValues"/>
+        <xsd:attribute name="comment" type="xsd:string"/>
+        <xsd:attribute name="initiator" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ActualAction" type="cjml:ActualAction"/>
+  <xsd:complexType name="JourneyOperator">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="belongsTo" type="cjml:JourneyPhase"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="operatorID" type="xsd:string"/>
+    <xsd:attribute name="belongsTo" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="JourneyOperator" type="cjml:JourneyOperator"/>
+  <xsd:complexType name="Concurrency">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:JourneyOperator">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="concurrencypaths" type="xsd:int"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Concurrency" type="cjml:Concurrency"/>
+  <xsd:complexType name="Decision">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:JourneyOperator">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="decisionMaker" type="cjml:Actor"/>
+        </xsd:choice>
+        <xsd:attribute name="decisionPaths" type="xsd:int"/>
+        <xsd:attribute name="condition" type="xsd:string"/>
+        <xsd:attribute name="decisionMaker" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Decision" type="cjml:Decision"/>
+  <xsd:complexType name="EndUserExperience">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="experienceRating" type="xsd:int"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="experienceDescription" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="EndUserExperience" type="cjml:EndUserExperience"/>
+  <xsd:complexType name="BackendSystem">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="systemID" type="xsd:string"/>
+    <xsd:attribute name="systemName" type="xsd:string"/>
+    <xsd:attribute name="systemDescription" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="BackendSystem" type="cjml:BackendSystem"/>
+  <xsd:complexType name="Object">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="objectID" type="xsd:string"/>
+    <xsd:attribute name="objectName" type="xsd:string"/>
+    <xsd:attribute name="objectDescription" type="xsd:string"/>
+    <xsd:attribute name="isVirtual" type="xsd:boolean"/>
+  </xsd:complexType>
+  <xsd:element name="Object" type="cjml:Object"/>
+  <xsd:complexType name="JourneyPhase">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="phaseName" type="xsd:string"/>
+    <xsd:attribute name="phaseDescription" type="xsd:string"/>
+    <xsd:attribute name="phaseID" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="JourneyPhase" type="cjml:JourneyPhase"/>
+  <xsd:complexType name="Actor">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="actorID" type="xsd:string"/>
+    <xsd:attribute name="actorName" type="xsd:string"/>
+    <xsd:attribute name="actorDescription" type="xsd:string"/>
+    <xsd:attribute name="isVirtual" type="xsd:boolean"/>
+  </xsd:complexType>
+  <xsd:element name="Actor" type="cjml:Actor"/>
+  <xsd:complexType name="EndUser">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="preferredChannels" type="cjml:channels"/>
+        </xsd:choice>
+        <xsd:attribute name="isMain" type="xsd:boolean"/>
+        <xsd:attribute name="preferences" type="xsd:string"/>
+        <xsd:attribute name="frustrations" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EndUser" type="cjml:EndUser"/>
+  <xsd:complexType name="ServiceProvider">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor">
+        <xsd:attribute name="companyName" type="xsd:string"/>
+        <xsd:attribute name="department" type="xsd:string"/>
+        <xsd:attribute name="position" type="xsd:string"/>
+        <xsd:attribute name="providerType" type="cjml:providerTypes"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ServiceProvider" type="cjml:ServiceProvider"/>
+  <xsd:complexType name="External">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="External" type="cjml:External"/>
+  <xsd:complexType name="Initiator">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="refersTo" type="cjml:Actor"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="initiatorLabel" type="xsd:string"/>
+    <xsd:attribute name="refersTo" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Initiator" type="cjml:Initiator"/>
+  <xsd:complexType name="Receiver">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="refersTo" type="cjml:Actor"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="receiverLabel" type="xsd:string"/>
+    <xsd:attribute name="refersTo" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Receiver" type="cjml:Receiver"/>
+  <xsd:complexType name="Channel">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="channel" type="cjml:channels"/>
+    <xsd:attribute name="comType" type="cjml:comTypes"/>
+    <xsd:attribute name="isSynchronous" type="xsd:boolean"/>
+  </xsd:complexType>
+  <xsd:element name="Channel" type="cjml:Channel"/>
+  <xsd:complexType name="Message">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="messageContent" type="xsd:string"/>
+    <xsd:attribute name="keyMessageContent" type="xsd:string"/>
+    <xsd:attribute name="derivedMessageContent" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Message" type="cjml:Message"/>
+  <xsd:complexType name="Customer">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Customer" type="cjml:Customer"/>
+  <xsd:complexType name="User">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="User" type="cjml:User"/>
+  <xsd:complexType name="Citizen">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Citizen" type="cjml:Citizen"/>
+  <xsd:complexType name="Patient">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser">
+        <xsd:attribute name="patientType" type="cjml:patientTypes"/>
+        <xsd:attribute name="diagnosis" type="xsd:string"/>
+        <xsd:attribute name="insuranceName" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Patient" type="cjml:Patient"/>
+  <xsd:complexType name="Employee">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="yearsExperience" type="xsd:int"/>
+        </xsd:choice>
+        <xsd:attribute name="companyName" type="xsd:string"/>
+        <xsd:attribute name="department" type="xsd:string"/>
+        <xsd:attribute name="position" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Employee" type="cjml:Employee"/>
+</xsd:schema>

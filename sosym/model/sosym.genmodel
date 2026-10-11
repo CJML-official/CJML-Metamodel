@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/sosym/src" modelPluginID="sosym" modelName="Sosym"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>sosym.ecore</foreignModel>
+  <genPackages prefix="Sosym" disposableProviderFactory="true" ecorePackage="sosym.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sosym.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Status/inProgress"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Status/completed"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Status/aborted"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sosym.ecore#//EUTypes">
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//EUTypes/customer"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//EUTypes/user"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//EUTypes/citizen"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//EUTypes/patient"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//EUTypes/employee"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sosym.ecore#//ComplianceValues">
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//ComplianceValues/planned"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//ComplianceValues/adhoc"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//ComplianceValues/missing"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//ComplianceValues/failing"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sosym.ecore#//UncertaintyValues">
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//UncertaintyValues/uncertainOccurrence"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//UncertaintyValues/uncertainNoOfOccurrence"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//UncertaintyValues/uncertainChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//UncertaintyValues/uncertainInitiator"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sosym.ecore#//Channels">
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Channels/telephone"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Channels/sms"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Channels/faceToFace"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Channels/internet"/>
+      <genEnumLiterals ecoreEnumLiteral="sosym.ecore#//Channels/email"/>
+    </genEnums>
+    <genClasses ecoreClass="sosym.ecore#//ServiceProcess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//ServiceProcess/groups"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//JourneyGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyGroup/groupID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyGroup/groupDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyGroup/numberofJourneys"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//JourneyGroup/journeys"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//JourneyGroup/decisionPaths"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//CustomerJourney">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CustomerJourney/journeyID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CustomerJourney/journeyTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CustomerJourney/journeyShortSummary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CustomerJourney/journeyLongSummary"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/phases"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/concurrentPaths"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/endUsers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/providers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourney/externals"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//PlannedJourney"/>
+    <genClasses ecoreClass="sosym.ecore#//ActualJourney">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//ActualJourney/journeyCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ActualJourney/journeyStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ActualJourney/contentCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ActualJourney/sequenceCompliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ActualJourney/endUserExperience"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ActualJourney/endUserExperienceRating"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Touchpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/touchpointID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/compliance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/uncertainty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/endUserExperience"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/endUserExperienceRating"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/timeStarted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/timeCompleted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Touchpoint/comment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Touchpoint/objects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Touchpoint/systems"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//CustomerJourneyElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CustomerJourneyElement/belongsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//JourneyPhase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyPhase/phaseName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyPhase/phaseDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//JourneyOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//JourneyOperator/operatorID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//JourneyOperator/belongsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Decision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Decision/decisionPaths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Decision/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Decision/decisionMaker"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Concurrency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Concurrency/concurrencyPaths"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Actor/actorID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Actor/actorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Actor/actorDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Actor/isVirtual"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//External"/>
+    <genClasses ecoreClass="sosym.ecore#//ServiceProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ServiceProvider/companyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//ServiceProvider/department"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//EndUser">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//EndUser/endUserType"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Action/hasInitiator"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//CommunicationPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CommunicationPoint/timeOriginated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CommunicationPoint/timeReceived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//CommunicationPoint/timeConsumed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CommunicationPoint/hasInitiator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CommunicationPoint/hasReceiver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CommunicationPoint/hasChannel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//CommunicationPoint/hasMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Object/objectID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Object/objectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Object/isVirtual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Object/objectDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//BackendSystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//BackendSystem/systemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//BackendSystem/systemName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//BackendSystem/systemDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Initiator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Initiator/refersTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Initiator/initiatorLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Receiver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sosym.ecore#//Receiver/refersTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Receiver/receiverLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Channel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Channel/channelName"/>
+    </genClasses>
+    <genClasses ecoreClass="sosym.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Message/keyMessage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sosym.ecore#//Message/messageContent"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:cjml="http://cjml.no/metamodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="cjml" ecore:package="org.eclipse.sirius.sample.cjmlmetamodel" targetNamespace="http://cjml.no/metamodel">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
+  <xsd:element ecore:ignore="true" name="PlannedJourney" type="cjml:PlannedJourney"/>
+  <xsd:element ecore:ignore="true" name="ActualJourney" type="cjml:ActualJourney"/>
+  <xsd:element ecore:ignore="true" name="CustomerJourney" type="cjml:CustomerJourney"/>
+  <xsd:element ecore:ignore="true" name="Touchpoint" type="cjml:Touchpoint"/>
+  <xsd:element ecore:ignore="true" name="PlannedTouchpoint" type="cjml:PlannedTouchpoint"/>
+  <xsd:element ecore:ignore="true" name="ActualTouchpoint" type="cjml:ActualTouchpoint"/>
+  <xsd:element ecore:ignore="true" name="PlannedAction" type="cjml:PlannedAction"/>
+  <xsd:element ecore:ignore="true" name="PlannedCommunicationPoint" type="cjml:PlannedCommunicationPoint"/>
+  <xsd:element ecore:ignore="true" name="ActualCommunicationPoint" type="cjml:ActualCommunicationPoint"/>
+  <xsd:element ecore:ignore="true" name="ActualAction" type="cjml:ActualAction"/>
+  <xsd:element ecore:ignore="true" name="JourneyOperator" type="cjml:JourneyOperator"/>
+  <xsd:element ecore:ignore="true" name="Concurrency" type="cjml:Concurrency"/>
+  <xsd:element ecore:ignore="true" name="Decision" type="cjml:Decision"/>
+  <xsd:element ecore:ignore="true" name="EndUserExperience" type="cjml:EndUserExperience"/>
+  <xsd:element ecore:ignore="true" name="BackendSystem" type="cjml:BackendSystem"/>
+  <xsd:element ecore:ignore="true" name="Object" type="cjml:Object"/>
+  <xsd:element ecore:ignore="true" name="JourneyPhase" type="cjml:JourneyPhase"/>
+  <xsd:element ecore:ignore="true" name="Actor" type="cjml:Actor"/>
+  <xsd:element ecore:ignore="true" name="EndUser" type="cjml:EndUser"/>
+  <xsd:element ecore:ignore="true" name="ServiceProvider" type="cjml:ServiceProvider"/>
+  <xsd:element ecore:ignore="true" name="External" type="cjml:External"/>
+  <xsd:element ecore:ignore="true" name="Initiator" type="cjml:Initiator"/>
+  <xsd:element ecore:ignore="true" name="Receiver" type="cjml:Receiver"/>
+  <xsd:element ecore:ignore="true" name="Channel" type="cjml:Channel"/>
+  <xsd:element ecore:ignore="true" name="Message" type="cjml:Message"/>
+  <xsd:element ecore:ignore="true" name="Customer" type="cjml:Customer"/>
+  <xsd:element ecore:ignore="true" name="User" type="cjml:User"/>
+  <xsd:element ecore:ignore="true" name="Citizen" type="cjml:Citizen"/>
+  <xsd:element ecore:ignore="true" name="Patient" type="cjml:Patient"/>
+  <xsd:element ecore:ignore="true" name="Employee" type="cjml:Employee"/>
+  <xsd:complexType name="PlannedJourney">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:CustomerJourney">
+        <xsd:attribute ecore:reference="cjml:PlannedTouchpoint" name="plannedTouchpoints" use="required">
+          <xsd:simpleType>
+            <xsd:restriction>
+              <xsd:simpleType>
+                <xsd:list itemType="xsd:anyURI"/>
+              </xsd:simpleType>
+              <xsd:minLength value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="comment" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ActualJourney">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:CustomerJourney">
+        <xsd:attribute ecore:reference="cjml:ActualTouchpoint" name="actualTouchpoints" use="required">
+          <xsd:simpleType>
+            <xsd:restriction>
+              <xsd:simpleType>
+                <xsd:list itemType="xsd:anyURI"/>
+              </xsd:simpleType>
+              <xsd:minLength value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute ecore:reference="cjml:PlannedJourney" name="journeyCompliance" type="xsd:anyURI"/>
+        <xsd:attribute ecore:reference="cjml:EndUserExperience" name="journeyExperience" type="xsd:anyURI"/>
+        <xsd:attribute ecore:unsettable="false" name="journeyStatus" type="cjml:status"/>
+        <xsd:attribute name="plannedReference" type="ecore:EString"/>
+        <xsd:attribute ecore:unsettable="false" name="contentCompliance" type="ecore:EBoolean"/>
+        <xsd:attribute ecore:unsettable="false" name="sequenceCompliance" type="ecore:EBoolean"/>
+        <xsd:attribute ecore:unsettable="false" name="timingCompliance" type="ecore:EBoolean"/>
+        <xsd:attribute name="comment" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerJourney">
+    <xsd:attribute ecore:reference="cjml:JourneyOperator" name="journeyOperators">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:JourneyPhase" name="journeyPhases">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:EndUser" name="endUsers" use="required">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:ServiceProvider" name="serviceProviders" use="required">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:External" name="externals">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="journeyID" type="ecore:EString"/>
+    <xsd:attribute name="journeyTitle" type="ecore:EString"/>
+    <xsd:attribute name="journeyShortSummary" type="ecore:EString"/>
+    <xsd:attribute name="journeyLongSummary" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Touchpoint">
+    <xsd:attribute ecore:reference="cjml:BackendSystem" name="systems">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:Object" name="objects">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="cjml:JourneyPhase" name="belongsTo" type="xsd:anyURI"/>
+    <xsd:attribute name="touchpointID" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedTouchpoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Touchpoint">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="deltaTime" type="ecore:EFloat"/>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="touchpointDuration" type="ecore:EFloat"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="uncertainty" type="cjml:uncertaintyValues"/>
+        <xsd:attribute name="comment" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ActualTouchpoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Touchpoint">
+        <xsd:attribute name="timeStarted" type="ecore:EDate"/>
+        <xsd:attribute name="timeCompleted" type="ecore:EDate"/>
+        <xsd:attribute ecore:reference="cjml:PlannedTouchpoint" name="touchpointCompliance" type="xsd:anyURI"/>
+        <xsd:attribute ecore:reference="cjml:EndUserExperience" name="touchpointExperience" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedAction">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:PlannedTouchpoint">
+        <xsd:attribute ecore:reference="cjml:Initiator" name="initiator" type="xsd:anyURI" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedCommunicationPoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:PlannedTouchpoint">
+        <xsd:attribute ecore:reference="cjml:Initiator" name="initiator" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Receiver" name="receiver" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Channel" name="channel" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Message" name="message" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ActualCommunicationPoint">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:ActualTouchpoint">
+        <xsd:attribute name="timeOriginated" type="ecore:EDate"/>
+        <xsd:attribute name="timeAvailable" type="ecore:EDate"/>
+        <xsd:attribute name="timeConsumed" type="ecore:EDate"/>
+        <xsd:attribute ecore:reference="cjml:Initiator" name="initiator" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Receiver" name="receiver" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Channel" name="channel" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="cjml:Message" name="message" type="xsd:anyURI"/>
+        <xsd:attribute ecore:unsettable="false" name="compliance" type="cjml:complianceValues"/>
+        <xsd:attribute ecore:unsettable="false" name="uncertainty" type="cjml:uncertaintyValues"/>
+        <xsd:attribute name="comment" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ActualAction">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:ActualTouchpoint">
+        <xsd:attribute ecore:reference="cjml:Initiator" name="initiator" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:unsettable="false" name="compliance" type="cjml:complianceValues"/>
+        <xsd:attribute ecore:unsettable="false" name="uncertainty" type="cjml:uncertaintyValues"/>
+        <xsd:attribute name="comment" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="JourneyOperator">
+    <xsd:attribute ecore:reference="cjml:JourneyPhase" name="belongsTo" type="xsd:anyURI"/>
+    <xsd:attribute name="operatorID" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Concurrency">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:JourneyOperator">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="concurrencypaths" type="ecore:EInt"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Decision">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:JourneyOperator">
+        <xsd:attribute ecore:unsettable="false" name="decisionPaths" type="ecore:EInt"/>
+        <xsd:attribute name="condition" type="ecore:EString"/>
+        <xsd:attribute ecore:reference="cjml:Actor" name="decisionMaker" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EndUserExperience">
+    <xsd:sequence>
+      <xsd:element ecore:unique="true" maxOccurs="5" name="experienceRating" type="ecore:EInt"/>
+    </xsd:sequence>
+    <xsd:attribute name="experienceDescription" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="BackendSystem">
+    <xsd:attribute name="systemID" type="ecore:EString"/>
+    <xsd:attribute name="systemName" type="ecore:EString"/>
+    <xsd:attribute name="systemDescription" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Object">
+    <xsd:attribute name="objectID" type="ecore:EString"/>
+    <xsd:attribute name="objectName" type="ecore:EString"/>
+    <xsd:attribute name="objectDescription" type="ecore:EString"/>
+    <xsd:attribute ecore:unsettable="false" name="isVirtual" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType name="JourneyPhase">
+    <xsd:attribute name="phaseName" type="ecore:EString"/>
+    <xsd:attribute name="phaseDescription" type="ecore:EString"/>
+    <xsd:attribute name="phaseID" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Actor">
+    <xsd:attribute name="actorID" type="ecore:EString"/>
+    <xsd:attribute name="actorName" type="ecore:EString"/>
+    <xsd:attribute name="actorDescription" type="ecore:EString"/>
+    <xsd:attribute ecore:unsettable="false" name="isVirtual" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType name="EndUser">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="preferredChannels" type="cjml:channels"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="isMain" type="ecore:EBoolean"/>
+        <xsd:attribute name="preferences" type="ecore:EString"/>
+        <xsd:attribute name="frustrations" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ServiceProvider">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor">
+        <xsd:attribute name="companyName" type="ecore:EString"/>
+        <xsd:attribute name="department" type="ecore:EString"/>
+        <xsd:attribute name="position" type="ecore:EString"/>
+        <xsd:attribute name="providerType" type="cjml:providerTypes"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="External">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:Actor"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="complianceValues" name="complianceValues">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="planned"/>
+      <xsd:enumeration value="adhoc"/>
+      <xsd:enumeration value="missing"/>
+      <xsd:enumeration value="failing"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="Initiator">
+    <xsd:attribute ecore:reference="cjml:Actor" name="refersTo" type="xsd:anyURI" use="required"/>
+    <xsd:attribute name="initiatorLabel" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Receiver">
+    <xsd:attribute ecore:reference="cjml:Actor" name="refersTo" type="xsd:anyURI" use="required"/>
+    <xsd:attribute name="receiverLabel" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Channel">
+    <xsd:attribute ecore:unsettable="false" name="channel" type="cjml:channels"/>
+    <xsd:attribute ecore:unsettable="false" name="comType" type="cjml:comTypes"/>
+    <xsd:attribute ecore:unsettable="false" name="isSynchronous" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType name="Message">
+    <xsd:attribute name="messageContent" type="ecore:EString"/>
+    <xsd:attribute name="keyMessageContent" type="ecore:EString"/>
+    <xsd:attribute name="derivedMessageContent" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="status" name="status">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="inProgress"/>
+      <xsd:enumeration value="completed"/>
+      <xsd:enumeration value="aborted"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="Customer">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="User">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Citizen">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Patient">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser">
+        <xsd:attribute ecore:unsettable="false" name="patientType" type="cjml:patientTypes"/>
+        <xsd:attribute name="diagnosis" type="ecore:EString"/>
+        <xsd:attribute name="insuranceName" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Employee">
+    <xsd:complexContent>
+      <xsd:extension base="cjml:EndUser">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="100" minOccurs="18" name="yearsExperience" type="ecore:EInt"/>
+        </xsd:sequence>
+        <xsd:attribute name="companyName" type="ecore:EString"/>
+        <xsd:attribute name="department" type="ecore:EString"/>
+        <xsd:attribute name="position" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="channels" name="channels">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="telephone"/>
+      <xsd:enumeration value="sms"/>
+      <xsd:enumeration value="email"/>
+      <xsd:enumeration value="socialMediaMessage"/>
+      <xsd:enumeration value="messageService"/>
+      <xsd:enumeration value="chat"/>
+      <xsd:enumeration value="faceToFace"/>
+      <xsd:enumeration value="internetViaPC"/>
+      <xsd:enumeration value="internetViaSmartPhone"/>
+      <xsd:enumeration value="internetViaTablet"/>
+      <xsd:enumeration value="appOnPC"/>
+      <xsd:enumeration value="appOnSmartPhone"/>
+      <xsd:enumeration value="appOnTablet"/>
+      <xsd:enumeration value="internet"/>
+      <xsd:enumeration value="selfServiceMachine"/>
+      <xsd:enumeration value="letter"/>
+      <xsd:enumeration value="packageDelivery"/>
+      <xsd:enumeration value="faxMessage"/>
+      <xsd:enumeration value="shopCounter"/>
+      <xsd:enumeration value="serviceDesk"/>
+      <xsd:enumeration value="paymentChannel"/>
+      <xsd:enumeration value="unknownChannel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="uncertaintyValues" name="uncertaintyValues">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="uncertainOccurrence"/>
+      <xsd:enumeration value="uncertainNoOfOccurrence"/>
+      <xsd:enumeration value="uncertainChannel"/>
+      <xsd:enumeration value="uncertainInitiator"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="comTypes" name="comTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="unicast"/>
+      <xsd:enumeration value="multicast"/>
+      <xsd:enumeration value="broadcast"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="providerTypes" name="providerTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="type1_internal_main"/>
+      <xsd:enumeration value="type2_internal_shared"/>
+      <xsd:enumeration value="type3_external"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="patientTypes" name="patientTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="inPatient"/>
+      <xsd:enumeration value="outPatient"/>
+      <xsd:enumeration value="dayCase"/>
+      <xsd:enumeration value="dayPatient"/>
+      <xsd:enumeration value="ambulatoryEmergencyCare"/>
+      <xsd:enumeration value="CommunityCare"/>
+      <xsd:enumeration value="IntensiveCare"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

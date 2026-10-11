@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sosym" nsURI="sosym" nsPrefix="sosym">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceProcess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" lowerBound="1"
+        upperBound="-1" eType="#//JourneyGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberofJourneys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeys" lowerBound="1"
+        upperBound="-1" eType="#//CustomerJourney"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyShortSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyLongSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedJourney" eSuperTypes="#//CustomerJourney"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualJourney" eSuperTypes="#//CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyCompliance" eType="#//PlannedJourney"/>
+  </eClassifiers>
+</ecore:EPackage>

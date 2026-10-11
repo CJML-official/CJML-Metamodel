@@ -1,0 +1,112 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Touchpoint</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getSystems <em>Systems</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getObjects <em>Objects</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getBelongsTo <em>Belongs To</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getTouchpointID <em>Touchpoint ID</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getUncertainty <em>Uncertainty</em>}</li>
+ * </ul>
+ *
+ * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint()
+ * @model
+ * @generated
+ */
+public interface Touchpoint extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Systems</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.sirius.sample.cjmlmetamodel.BackendSystem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Systems</em>' reference list.
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint_Systems()
+	 * @model
+	 * @generated
+	 */
+	EList<BackendSystem> getSystems();
+
+	/**
+	 * Returns the value of the '<em><b>Objects</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.sirius.sample.cjmlmetamodel.Object}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Objects</em>' reference list.
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint_Objects()
+	 * @model
+	 * @generated
+	 */
+	EList<org.eclipse.sirius.sample.cjmlmetamodel.Object> getObjects();
+
+	/**
+	 * Returns the value of the '<em><b>Belongs To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Belongs To</em>' reference.
+	 * @see #setBelongsTo(JourneyPhase)
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint_BelongsTo()
+	 * @model
+	 * @generated
+	 */
+	JourneyPhase getBelongsTo();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getBelongsTo <em>Belongs To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Belongs To</em>' reference.
+	 * @see #getBelongsTo()
+	 * @generated
+	 */
+	void setBelongsTo(JourneyPhase value);
+
+	/**
+	 * Returns the value of the '<em><b>Touchpoint ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Touchpoint ID</em>' attribute.
+	 * @see #setTouchpointID(String)
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint_TouchpointID()
+	 * @model
+	 * @generated
+	 */
+	String getTouchpointID();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.sirius.sample.cjmlmetamodel.Touchpoint#getTouchpointID <em>Touchpoint ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Touchpoint ID</em>' attribute.
+	 * @see #getTouchpointID()
+	 * @generated
+	 */
+	void setTouchpointID(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Uncertainty</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.sirius.sample.cjmlmetamodel.uncertaintyValues}.
+	 * The literals are from the enumeration {@link org.eclipse.sirius.sample.cjmlmetamodel.uncertaintyValues}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uncertainty</em>' attribute list.
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.uncertaintyValues
+	 * @see org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage#getTouchpoint_Uncertainty()
+	 * @model upper="4"
+	 * @generated
+	 */
+	EList<uncertaintyValues> getUncertainty();
+
+} // Touchpoint

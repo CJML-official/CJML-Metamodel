@@ -1,0 +1,241 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage;
+import org.eclipse.sirius.sample.cjmlmetamodel.PlannedTouchpoint;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Planned Touchpoint</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.PlannedTouchpointImpl#getDeltaTime <em>Delta Time</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.PlannedTouchpointImpl#getTouchpointDuration <em>Touchpoint Duration</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.PlannedTouchpointImpl#getComment <em>Comment</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class PlannedTouchpointImpl extends TouchpointImpl implements PlannedTouchpoint {
+	/**
+	 * The cached value of the '{@link #getDeltaTime() <em>Delta Time</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeltaTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Float> deltaTime;
+
+	/**
+	 * The cached value of the '{@link #getTouchpointDuration() <em>Touchpoint Duration</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTouchpointDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Float> touchpointDuration;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlannedTouchpointImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CjmlmetamodelPackage.Literals.PLANNED_TOUCHPOINT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Float> getDeltaTime() {
+		if (deltaTime == null) {
+			deltaTime = new EDataTypeUniqueEList<Float>(Float.class, this, CjmlmetamodelPackage.PLANNED_TOUCHPOINT__DELTA_TIME);
+		}
+		return deltaTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Float> getTouchpointDuration() {
+		if (touchpointDuration == null) {
+			touchpointDuration = new EDataTypeUniqueEList<Float>(Float.class, this, CjmlmetamodelPackage.PLANNED_TOUCHPOINT__TOUCHPOINT_DURATION);
+		}
+		return touchpointDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.PLANNED_TOUCHPOINT__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__DELTA_TIME:
+				return getDeltaTime();
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__TOUCHPOINT_DURATION:
+				return getTouchpointDuration();
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__COMMENT:
+				return getComment();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__DELTA_TIME:
+				getDeltaTime().clear();
+				getDeltaTime().addAll((Collection<? extends Float>)newValue);
+				return;
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__TOUCHPOINT_DURATION:
+				getTouchpointDuration().clear();
+				getTouchpointDuration().addAll((Collection<? extends Float>)newValue);
+				return;
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__COMMENT:
+				setComment((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__DELTA_TIME:
+				getDeltaTime().clear();
+				return;
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__TOUCHPOINT_DURATION:
+				getTouchpointDuration().clear();
+				return;
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__DELTA_TIME:
+				return deltaTime != null && !deltaTime.isEmpty();
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__TOUCHPOINT_DURATION:
+				return touchpointDuration != null && !touchpointDuration.isEmpty();
+			case CjmlmetamodelPackage.PLANNED_TOUCHPOINT__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (deltaTime: ");
+		result.append(deltaTime);
+		result.append(", touchpointDuration: ");
+		result.append(touchpointDuration);
+		result.append(", comment: ");
+		result.append(comment);
+		result.append(')');
+		return result.toString();
+	}
+
+} //PlannedTouchpointImpl

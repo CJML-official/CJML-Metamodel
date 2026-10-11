@@ -1,0 +1,37 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel.impl;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage;
+import org.eclipse.sirius.sample.cjmlmetamodel.Customer;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Customer</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * @generated
+ */
+public class CustomerImpl extends EndUserImpl implements Customer {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomerImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CjmlmetamodelPackage.Literals.CUSTOMER;
+	}
+
+} //CustomerImpl

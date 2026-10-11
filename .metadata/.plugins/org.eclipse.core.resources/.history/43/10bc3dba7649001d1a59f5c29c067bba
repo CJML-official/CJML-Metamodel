@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sosym" nsURI="sosym" nsPrefix="sosym">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceProcess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" lowerBound="1"
+        upperBound="-1" eType="#//JourneyGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberofJourneys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeys" lowerBound="1"
+        upperBound="-1" eType="#//CustomerJourney"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyShortSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyLongSummary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
+        upperBound="-1" eType="#//CustomerJourneyElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
+        eType="#//JourneyPhase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concurrentPaths" upperBound="-1"
+        eType="#//Concurrency"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannedJourney" eSuperTypes="#//CustomerJourney"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualJourney" eSuperTypes="#//CustomerJourney">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="journeyCompliance" eType="#//PlannedJourney"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journeyStatus" eType="#//Status"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentCompliance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceCompliance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endUserExperience" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endUserExperienceRating"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Status">
+    <eLiterals name="inProgress"/>
+    <eLiterals name="completed" value="1"/>
+    <eLiterals name="aborted" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass6"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerJourneyElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyPhase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phaseDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JourneyOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatorID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Decision">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decisionPaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concurrency">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concurrencyPaths" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor"/>
+</ecore:EPackage>

@@ -1,0 +1,11 @@
+INDEX VERSION 1.134+C:\Users\Otas\SINTEF\(FP) SmartJourneyMining - 01 Metamodel\Eclipse\.metadata\.plugins\org.eclipse.jdt.core
+2084343142.index
+3835499861.index
+800095685.index
+2240705725.index
+3276143445.index
+1865797976.index
+77772472.index
+3057779085.index
+2364546358.index
+228375768.index

@@ -1,0 +1,334 @@
+/**
+ */
+package org.eclipse.sirius.sample.cjmlmetamodel.impl;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.sirius.sample.cjmlmetamodel.ActualAction;
+import org.eclipse.sirius.sample.cjmlmetamodel.CjmlmetamodelPackage;
+import org.eclipse.sirius.sample.cjmlmetamodel.Initiator;
+import org.eclipse.sirius.sample.cjmlmetamodel.complianceValues;
+import org.eclipse.sirius.sample.cjmlmetamodel.uncertaintyValues;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Actual Action</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualActionImpl#getInitiator <em>Initiator</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualActionImpl#getCompliance <em>Compliance</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualActionImpl#getUncertainty <em>Uncertainty</em>}</li>
+ *   <li>{@link org.eclipse.sirius.sample.cjmlmetamodel.impl.ActualActionImpl#getComment <em>Comment</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ActualActionImpl extends ActualTouchpointImpl implements ActualAction {
+	/**
+	 * The cached value of the '{@link #getInitiator() <em>Initiator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitiator()
+	 * @generated
+	 * @ordered
+	 */
+	protected Initiator initiator;
+
+	/**
+	 * The default value of the '{@link #getCompliance() <em>Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final complianceValues COMPLIANCE_EDEFAULT = complianceValues.PLANNED;
+
+	/**
+	 * The cached value of the '{@link #getCompliance() <em>Compliance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompliance()
+	 * @generated
+	 * @ordered
+	 */
+	protected complianceValues compliance = COMPLIANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUncertainty() <em>Uncertainty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUncertainty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final uncertaintyValues UNCERTAINTY_EDEFAULT = uncertaintyValues.UNCERTAIN_OCCURRENCE;
+
+	/**
+	 * The cached value of the '{@link #getUncertainty() <em>Uncertainty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUncertainty()
+	 * @generated
+	 * @ordered
+	 */
+	protected uncertaintyValues uncertainty = UNCERTAINTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comment = COMMENT_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActualActionImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CjmlmetamodelPackage.Literals.ACTUAL_ACTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Initiator getInitiator() {
+		if (initiator != null && initiator.eIsProxy()) {
+			InternalEObject oldInitiator = (InternalEObject)initiator;
+			initiator = (Initiator)eResolveProxy(oldInitiator);
+			if (initiator != oldInitiator) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR, oldInitiator, initiator));
+			}
+		}
+		return initiator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Initiator basicGetInitiator() {
+		return initiator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitiator(Initiator newInitiator) {
+		Initiator oldInitiator = initiator;
+		initiator = newInitiator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR, oldInitiator, initiator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public complianceValues getCompliance() {
+		return compliance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompliance(complianceValues newCompliance) {
+		complianceValues oldCompliance = compliance;
+		compliance = newCompliance == null ? COMPLIANCE_EDEFAULT : newCompliance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_ACTION__COMPLIANCE, oldCompliance, compliance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public uncertaintyValues getUncertainty() {
+		return uncertainty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUncertainty(uncertaintyValues newUncertainty) {
+		uncertaintyValues oldUncertainty = uncertainty;
+		uncertainty = newUncertainty == null ? UNCERTAINTY_EDEFAULT : newUncertainty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_ACTION__UNCERTAINTY, oldUncertainty, uncertainty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComment(String newComment) {
+		String oldComment = comment;
+		comment = newComment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CjmlmetamodelPackage.ACTUAL_ACTION__COMMENT, oldComment, comment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR:
+				if (resolve) return getInitiator();
+				return basicGetInitiator();
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMPLIANCE:
+				return getCompliance();
+			case CjmlmetamodelPackage.ACTUAL_ACTION__UNCERTAINTY:
+				return getUncertainty();
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMMENT:
+				return getComment();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR:
+				setInitiator((Initiator)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMPLIANCE:
+				setCompliance((complianceValues)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__UNCERTAINTY:
+				setUncertainty((uncertaintyValues)newValue);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMMENT:
+				setComment((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR:
+				setInitiator((Initiator)null);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMPLIANCE:
+				setCompliance(COMPLIANCE_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__UNCERTAINTY:
+				setUncertainty(UNCERTAINTY_EDEFAULT);
+				return;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CjmlmetamodelPackage.ACTUAL_ACTION__INITIATOR:
+				return initiator != null;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMPLIANCE:
+				return compliance != COMPLIANCE_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__UNCERTAINTY:
+				return uncertainty != UNCERTAINTY_EDEFAULT;
+			case CjmlmetamodelPackage.ACTUAL_ACTION__COMMENT:
+				return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (compliance: ");
+		result.append(compliance);
+		result.append(", uncertainty: ");
+		result.append(uncertainty);
+		result.append(", comment: ");
+		result.append(comment);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ActualActionImpl
